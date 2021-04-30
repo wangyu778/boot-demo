@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.users.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.users.url."
+    },
+    {
+      "name": "mybatis-plus.configuration.map-underscore-to-camel-case",
+      "type": "java.lang.String",
+      "description": "Description for mybatis-plus.configuration.map-underscore-to-camel-case."
+    }
+  ] }

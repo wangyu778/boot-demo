@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: boot-demo #应用名称
+
+  # datasource 数据源配置内容，对应 DataSourceProperties 配置属性类
+  datasource:
+    # 多数据源配置1
+    master:
+      url: jdbc:mysql://127.0.0.1:3306/lovehouse?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+      # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    # 多数据源配置2
+    slave:
+      url: jdbc:mysql://127.0.0.1:3306/lovehouse?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource # 设置类型为 DruidDataSource
+      # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+    druid:
+      min-idle: 0 # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 20 # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+      filter:
+        stat: # 配置 StatFilter ，对应文档 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+          log-slow-sql: true # 开启慢查询记录
+          slow-sql-millis: 5000 # 慢 SQL 的标准，单位：毫秒
+      stat-view-servlet: # 配置 StatViewServlet ，监控数据库连接池
+        enabled: true # 是否开启 StatViewServlet
+        login-username: root # 账号
+        login-password: 123456 # 密码
+
+## mybatis 配置内容
+#mybatis:
+#  config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
+#  mapper-locations: classpath:mapping/*.xml # 配置 Mapper XML 地址
+#  type-aliases-package: com.boot.demo.entity # 配置数据库实体包路径
+
+# mybatis-plus 配置内容 和mybatis进行2选一
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 虽然默认为 true ，但是还是显示去指定下。
+  global-config:
+    db-config:
+      id-type: auto # ID 主键自增
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  mapper-locations: classpath*:mapping/*.xml
+  type-aliases-package: com.boot.demo.entity
+
+#日志文件配置
+logging:
+  level:
+    com:
+      boot:
+        demo:
+          controller:
+            info
+#调试模式，先把整体输出级别全改成debug，默认伟false
+debug: false

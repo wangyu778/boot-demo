@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.demo.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.boot.demo.entity.dao.UserDao">
+    <id column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="idCardNumber" jdbcType="VARCHAR" property="idCardNumber" />
+    <result column="personSign" jdbcType="VARCHAR" property="personSign" />
+    <result column="isRental" jdbcType="INTEGER" property="isRental" />
+    <result column="isLock" jdbcType="INTEGER" property="isLock" />
+    <result column="lockTime" jdbcType="TIMESTAMP" property="lockTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, userName, `password`, createDate, sex, phone, email, idCardNumber, personSign, 
+    isRental, isLock, lockTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" />
+    FROM user
+    WHERE userId = #{userId,jdbcType=VARCHAR}
+  </select>
+</mapper>
