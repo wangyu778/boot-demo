@@ -25,7 +25,6 @@ public class AccessLogInterceptor extends HandlerInterceptorAdapter {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-
     @Value("${spring.application.name}")
     private String applicationName;
 

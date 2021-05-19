@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @Description:
  */
 @SpringBootTest
-public class UserMapperTest {
+public class MapperTest {
 
     @Autowired
     private UserMapper userMapper;

@@ -15,13 +15,22 @@
     <result column="isLock" jdbcType="INTEGER" property="isLock" />
     <result column="lockTime" jdbcType="TIMESTAMP" property="lockTime" />
   </resultMap>
+
   <sql id="Base_Column_List">
     userId, userName, `password`, createDate, sex, phone, email, idCardNumber, personSign, 
     isRental, isLock, lockTime
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List" />
     FROM user
     WHERE userId = #{userId,jdbcType=VARCHAR}
   </select>
+
+  <select id="exportHongKong" parameterType="string" resultType="integer">
+    SELECT COUNT(*)
+    FROM test_20210428
+    WHERE ${sql}
+  </select>
+
 </mapper>

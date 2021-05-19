@@ -10,11 +10,18 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends BaseMapper<UserDao> {
 
-//    /**
-//     * 查
-//     * @param userId userId
-//     * @return UserDao
-//     */
-//    UserDao selectByPrimaryKey(String userId);
+    /**
+     * 查
+     * @param userId userId
+     * @return UserDao
+     */
+    UserDao selectByPrimaryKey(String userId);
+
+    /**
+     * 导出香港区数据
+     * @param sql sql
+     * @return 总数
+     */
+    int exportHongKong(String sql);
 
 }
