@@ -176,4 +176,9 @@ public class SmartHttpUtil {
         return body;
     }
 
+    public static void main(String[] args) throws Exception {
+        String str = SmartHttpUtil.sendPostJson("https://translate.google.cn/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&f.sid=7037174094295117688&bl=boq_translate-webserver_20210518.09_p0&hl=zh-CN&soc-app=1&soc-platform=1&soc-device=1&_reqid=57233&rt=c", null, null);
+        System.out.println(str);
+    }
+
 }

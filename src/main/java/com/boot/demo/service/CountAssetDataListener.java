@@ -43,7 +43,7 @@ public class CountAssetDataListener extends AnalysisEventListener<ContentDTO> {
 
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
-        EasyExcel.write("D://twitter统计结果.xlsx", CountExcelDTO.class).sheet("sheet1").doWrite(contentList);
+        EasyExcel.write("D://fb区域统计结果.xlsx", CountExcelDTO.class).sheet("sheet1").doWrite(contentList);
     }
 
     public CountExcelDTO getCountExcelDTO(ContentDTO data){
@@ -79,8 +79,8 @@ public class CountAssetDataListener extends AnalysisEventListener<ContentDTO> {
                 case "沙田区": countExcelDTO.setLoc14(1+countExcelDTO.getLoc14());break;
                 case "大埔区": countExcelDTO.setLoc15(1+countExcelDTO.getLoc15());break;
                 case "荃湾区": countExcelDTO.setLoc16(1+countExcelDTO.getLoc16());break;
-                case "屯门区": countExcelDTO.setLoc16(1+countExcelDTO.getLoc17());break;
-                case "元朗区": countExcelDTO.setLoc16(1+countExcelDTO.getLoc18());break;
+                case "屯门区": countExcelDTO.setLoc17(1+countExcelDTO.getLoc17());break;
+                case "元朗区": countExcelDTO.setLoc18(1+countExcelDTO.getLoc18());break;
                 default:break;
             }
         }
